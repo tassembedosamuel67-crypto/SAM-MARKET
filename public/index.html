@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛍️ SAM MARKET - Marketplace Burkina Faso</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <h1>🛍️ SAM MARKET</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#produits">Produits</a></li>
+                    <li><a href="#categories">Catégories</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" class="btn-login">Connexion</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Bienvenue sur SAM MARKET 🇧🇫</h2>
+                <p>La meilleure plateforme pour acheter et vendre au Burkina Faso</p>
+                <div class="search-bar">
+                    <input type="text" placeholder="Rechercher un produit...">
+                    <button>Rechercher</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Catégories -->
+    <section id="categories" class="categories">
+        <div class="container">
+            <h2>Catégories</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <span class="category-icon">👕</span>
+                    <h3>Mode & Vêtements</h3>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🏠</span>
+                    <h3>Maison & Électronique</h3>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">📱</span>
+                    <h3>Téléphones & Accessoires</h3>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🎮</span>
+                    <h3>Jeux & Loisirs</h3>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🍕</span>
+                    <h3>Alimentation</h3>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🎓</span>
+                    <h3>Éducation & Livres</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Produits -->
+    <section id="produits" class="products">
+        <div class="container">
+            <h2>Produits en Vedette</h2>
+            <div class="products-grid" id="productsGrid">
+                <div class="loading">Chargement des produits...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Panier -->
+    <section class="cart-summary">
+        <div class="container">
+            <h3>Mon Panier</h3>
+            <div id="cartItems">
+                <p>Votre panier est vide</p>
+            </div>
+            <button class="btn-primary">Voir le panier</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>À Propos</h4>
+                    <p>SAM MARKET est une marketplace moderne adaptée au Burkina Faso.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens Utiles</h4>
+                    <ul>
+                        <li><a href="#" onclick="scrollToSection('accueil')">Accueil</a></li>
+                        <li><a href="#" onclick="scrollToSection('produits')">Produits</a></li>
+                        <li><a href="#" onclick="scrollToSection('categories')">Catégories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Nous Contacter</h4>
+                    <p>Email: contact@sammarket.bf</p>
+                    <p>Tél: +226 XX XX XX XX</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SAM MARKET. Tous droits réservés. | Développé par SAM DIGITAL</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="notification" class="notification"></div>
+    <script src="js/app.js"></script>
+</body>
+</html>
