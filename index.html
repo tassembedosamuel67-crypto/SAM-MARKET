@@ -1,1 +1,141 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#111827"><title>SAM MARKET</title><style>*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f4f5f7;color:#111827}header{background:#111827;color:#fff;padding:18px 16px;position:sticky;top:0;z-index:3}.logo{font-size:25px;font-weight:800}.tag{font-size:12px;opacity:.75;margin:4px 0 13px}.search{width:100%;padding:13px;border:0;border-radius:12px;font-size:15px}main{max-width:950px;margin:auto;padding:18px 16px 85px}h2{margin:6px 0 14px}.cats{display:flex;gap:9px;overflow:auto;margin-bottom:18px}.cat{white-space:nowrap;border:0;border-radius:20px;padding:10px 14px;background:#fff}.cat.active{background:#111827;color:#fff}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}.card{background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 3px 12px #0001}.pic{height:145px;background:#e5e7eb;display:grid;place-items:center;font-size:48px}.info{padding:12px}.name{font-weight:700}.price{font-weight:800;margin-top:6px}.buy{width:100%;margin-top:10px;padding:10px;border:0;border-radius:9px;background:#111827;color:#fff}nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #ddd;display:flex;justify-content:space-around;padding:9px 3px;z-index:5}nav button{border:0;background:none;font-size:11px}.ico{display:block;font-size:20px;margin-bottom:2px}.panel{background:#fff;border-radius:15px;padding:18px}.panel button{margin-top:10px}@media(min-width:650px){.grid{grid-template-columns:repeat(4,1fr)}.pic{height:175px}}</style></head><body><header><div class="logo">SAM MARKET</div><div class="tag">Achète • Vends • Livre 🇧🇫</div><input id="search" class="search" placeholder="Rechercher un produit..."></header><main><section id="home"><h2>Produits populaires</h2><div class="cats" id="cats"></div><div class="grid" id="products"></div></section><section id="cart" class="panel" hidden></section></main><nav><button onclick="home()"><span class="ico">🏠</span>Accueil</button><button onclick="cartPage()"><span class="ico">🛒</span>Panier <b id="badge"></b></button><button onclick="sell()"><span class="ico">🏪</span>Vendre</button><button onclick="account()"><span class="ico">👤</span>Compte</button></nav><script>const items=[['T-shirt homme',7500,'Mode','👕'],['Parfum femme',10000,'Beauté','🧴'],['Écouteurs Bluetooth',8500,'Téléphones','🎧'],['Sac à main',12000,'Mode','👜'],['Chaussures',15000,'Mode','👟'],['Smartphone',85000,'Téléphones','📱'],['Montre',9000,'Accessoires','⌚'],['Lunettes',6000,'Accessoires','🕶️']].map((x,i)=>({id:i,...{name:x[0],price:x[1],cat:x[2],emoji:x[3]}}));let selected='Tous',basket=[];const money=n=>n.toLocaleString('fr-FR')+' F';function draw(){cats.innerHTML=['Tous',...new Set(items.map(x=>x.cat))].map(c=>`<button class="cat ${c===selected?'active':''}" onclick="selected='${c}';draw()">${c}</button>`).join('');let q=search.value.toLowerCase();let list=items.filter(x=>(selected==='Tous'||x.cat===selected)&&x.name.toLowerCase().includes(q));products.innerHTML=list.map(x=>`<article class="card"><div class="pic">${x.emoji}</div><div class="info"><div class="name">${x.name}</div><div class="price">${money(x.price)}</div><button class="buy" onclick="add(${x.id})">Ajouter au panier</button></div></article>`).join('');badge.textContent=basket.length?'('+basket.length+')':''}function add(id){basket.push(items.find(x=>x.id===id));draw();alert('Produit ajouté au panier 🛒')}function home(){document.getElementById('home').hidden=false;cart.hidden=true;draw()}function cartPage(){home();document.getElementById('home').hidden=true;cart.hidden=false;if(!basket.length){cart.innerHTML='<h3>🛒 Panier vide</h3><p>Ajoute des produits depuis l'accueil.</p>';return}let total=basket.reduce((a,x)=>a+x.price,0);cart.innerHTML='<h3>🛒 Mon panier</h3>'+basket.map(x=>`<p>• ${x.name} — <b>${money(x.price)}</b></p>`).join('')+`<hr><h3>Total : ${money(total)}</h3><button class="buy" onclick="alert('Commande enregistrée. Le paiement Mobile Money sera ajouté dans la prochaine version.')">Commander</button>`}function sell(){alert('Espace vendeur — sera ajouté dans la prochaine version.')}function account(){alert('Compte client — sera ajouté dans la prochaine version.')}search.addEventListener('input',draw);draw();</script></body></html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛍️ SAM MARKET - Marketplace Burkina Faso</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <h1>🛍️ SAM MARKET</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#produits">Produits</a></li>
+                    <li><a href="#categories">Catégories</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" class="btn-login">Connexion</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Bienvenue sur SAM MARKET 🇧🇫</h2>
+                <p>La meilleure plateforme pour acheter et vendre au Burkina Faso</p>
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Rechercher un produit...">
+                    <button onclick="searchProducts()">Rechercher</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Catégories -->
+    <section id="categories" class="categories">
+        <div class="container">
+            <h2>Catégories</h2>
+            <div class="categories-grid">
+                <div class="category-card" onclick="filterByCategory('Mode')">
+                    <span class="category-icon">👕</span>
+                    <h3>Mode & Vêtements</h3>
+                </div>
+                <div class="category-card" onclick="filterByCategory('Électronique')">
+                    <span class="category-icon">🏠</span>
+                    <h3>Maison & Électronique</h3>
+                </div>
+                <div class="category-card" onclick="filterByCategory('Téléphones')">
+                    <span class="category-icon">📱</span>
+                    <h3>Téléphones & Accessoires</h3>
+                </div>
+                <div class="category-card" onclick="filterByCategory('Sports')">
+                    <span class="category-icon">🎮</span>
+                    <h3>Jeux & Loisirs</h3>
+                </div>
+                <div class="category-card" onclick="filterByCategory('Alimentation')">
+                    <span class="category-icon">🍕</span>
+                    <h3>Alimentation</h3>
+                </div>
+                <div class="category-card" onclick="filterByCategory('Livres')">
+                    <span class="category-icon">🎓</span>
+                    <h3>Éducation & Livres</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Produits -->
+    <section id="produits" class="products">
+        <div class="container">
+            <h2>Produits en Vedette</h2>
+            <div class="products-grid" id="productsGrid">
+                <div class="loading">Chargement des produits...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Panier -->
+    <section class="cart-summary">
+        <div class="container">
+            <h3>Mon Panier 🛒</h3>
+            <div id="cartItems">
+                <p>Votre panier est vide</p>
+            </div>
+            <button class="btn-primary" onclick="showCart()">Voir le panier</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>À Propos</h4>
+                    <p>SAM MARKET est une marketplace moderne adaptée au Burkina Faso permettant aux utilisateurs d'acheter et vendre facilement.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens Utiles</h4>
+                    <ul>
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#produits">Produits</a></li>
+                        <li><a href="#categories">Catégories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Nous Contacter</h4>
+                    <p>📧 Email: contact@sammarket.bf</p>
+                    <p>📱 Tél: +226 25 XX XX XX</p>
+                    <p>📍 Ouagadougou, Burkina Faso</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SAM MARKET. Tous droits réservés. | Développé par SAM DIGITAL</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Panier -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCart()">&times;</span>
+            <h2>Votre Panier</h2>
+            <div id="cartModalItems"></div>
+            <div id="cartTotal" style="font-size: 1.5rem; font-weight: bold; margin: 1rem 0;"></div>
+            <button class="btn-primary" onclick="checkout()">Passer la commande</button>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,174 +1,145 @@
-# 🛍️ SAM MARKET
+# 🛍️ SAM MARKET - Version GitHub Pages
 
 **Marketplace en ligne adaptée au Burkina Faso 🇧🇫**
 
-Une plateforme moderne permettant aux utilisateurs d'acheter et vendre des produits facilement. Interface intuitive, recherche avancée, catégories, gestion de produits et panier.
-
-**Projet développé par SAM DIGITAL**
+Une plateforme moderne permettant aux utilisateurs d'acheter et vendre des produits facilement.
 
 ---
 
-## 📋 Prérequis
+## 🌍 **ACCÉDER À L'APPLICATION**
 
-Avant de commencer, assurez-vous d'avoir installé:
+### ✅ **EN DIRECT SUR:**
+```
+https://tassembedosamuel67-crypto.github.io/SAM-MARKET
+```
 
-- **Node.js** (v14 ou supérieur) - [Télécharger](https://nodejs.org/)
-- **npm** ou **yarn**
-- **MongoDB** (local ou cloud) - [Télécharger](https://www.mongodb.com/try/download/community)
-- **Git**
+**C'est automatique! GitHub héberge votre site gratuitement!** 🚀
 
 ---
 
-## 🚀 Installation et Démarrage
+## ✨ **Fonctionnalités**
 
-### 1. Cloner le repository
-```bash
-git clone https://github.com/tassembedosamuel67-crypto/SAM-MARKET.git
-cd SAM-MARKET
-```
+✅ **Interface moderne et responsive**
+- Navigation fluide
+- Design adapté (mobile, tablet, desktop)
+- Animations agréables
 
-### 2. Installer les dépendances
-```bash
-npm install
-```
+✅ **Gestion du panier**
+- Ajouter/retirer des produits
+- Voir le total des achats
+- Sauvegarder le panier (localStorage)
+- Passer commande
 
-### 3. Configurer les variables d'environnement
-Créez un fichier `.env` à la racine du projet:
+✅ **Recherche et filtrage**
+- Rechercher par nom/description
+- Filtrer par catégories
+- Affichage dynamique des résultats
 
-```bash
-cp .env.example .env
-```
-
-Modifiez le fichier `.env` avec vos configurations:
-```env
-PORT=5000
-NODE_ENV=development
-MONGODB_URI=mongodb://localhost:27017/sam-market
-JWT_SECRET=your_secret_key_here
-```
-
-### 4. Démarrer MongoDB
-
-**Option A: MongoDB local**
-```bash
-mongod
-```
-
-**Option B: MongoDB Atlas (Cloud)**
-- Créez un compte sur [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
-- Modifiez `MONGODB_URI` dans `.env` avec votre URL de connexion
-
-### 5. Lancer l'application
-
-**Mode développement (avec rechargement automatique)**
-```bash
-npm run dev
-```
-
-**Mode production**
-```bash
-npm start
-```
-
-✅ L'application sera accessible à: **http://localhost:5000**
+✅ **6 catégories de produits**
+- Mode & Vêtements
+- Maison & Électronique
+- Téléphones & Accessoires
+- Jeux & Loisirs
+- Alimentation
+- Éducation & Livres
 
 ---
 
-## 📁 Structure du Projet
+## 📂 **Structure des fichiers**
 
 ```
 SAM-MARKET/
-├── public/                    # Fichiers statiques
-│   ├── index.html
-│   ├── css/
-│   │   └── style.css
-│   ├── js/
-│   │   └── app.js
-│   └── images/
-├── models/                    # Schémas MongoDB (À implémenter)
-├── routes/                    # Routes API (À implémenter)
-├── controllers/               # Logique métier (À implémenter)
-├── middleware/                # Middlewares (À implémenter)
-├── server.js                  # Serveur principal
-├── .env.example              # Exemple de configuration
-├── .gitignore                # Fichiers à ignorer
-├── package.json              # Dépendances
-└── README.md                 # Documentation
+├── index.html           ← Page principale
+├── css/
+│   └── style.css       ← Styles modernes
+├── js/
+│   └── app.js          ← Logique JavaScript
+└── README.md           ← Documentation
 ```
 
 ---
 
-## 🔧 API Endpoints
+## 🔧 **Modifier l'application**
 
-### Santé du serveur
-- `GET /api/health` - Vérifier que l'API fonctionne ✅
+### **Ajouter de nouveaux produits:**
 
-### À implémenter
-- Authentication routes
-- Products CRUD
-- Orders management
+Modifiez `js/app.js` et ajoutez dans `allProducts`:
 
----
+```javascript
+{
+    id: 7,
+    name: 'Nom du produit',
+    description: 'Description détaillée',
+    price: 50000,
+    category: 'Catégorie',
+    emoji: '📦',
+    seller: 'Vendeur',
+    stock: 5
+}
+```
 
-## 💻 Commandes Utiles
+### **Changer les couleurs:**
+
+Modifiez `css/style.css`:
+
+```css
+:root {
+    --primary-color: #FF6B35;      /* Couleur principale */
+    --secondary-color: #004E89;    /* Couleur secondaire */
+    --accent-color: #F7B801;       /* Couleur accent */
+}
+```
+
+### **Mettre à jour le site:**
 
 ```bash
-# Installer les dépendances
-npm install
+# 1. Modifier les fichiers localement
+# 2. Sauvegarder
+# 3. Pousser vers GitHub
 
-# Démarrer en mode développement
-npm run dev
-
-# Démarrer en mode production
-npm start
-
-# Installer une nouvelle dépendance
-npm install <package-name>
+git add .
+git commit -m "Mise à jour SAM MARKET"
+git push origin main
 ```
 
----
-
-## 🐛 Dépannage
-
-### Erreur: "Cannot find module 'express'"
-```bash
-npm install
-```
-
-### Erreur: "Connection refused" (MongoDB)
-```bash
-mongod
-```
-
-### Port 5000 déjà utilisé
-Modifiez le PORT dans `.env`:
-```env
-PORT=3000
-```
+**GitHub Pages se met à jour automatiquement!** ⏳ (quelques minutes)
 
 ---
 
-## 📦 Technologies Utilisées
+## 💾 **Données sauvegardées**
 
-- **Backend**: Node.js, Express.js
-- **Base de données**: MongoDB, Mongoose
-- **Frontend**: HTML5, CSS3, JavaScript
-- **Sécurité**: JWT, bcryptjs, CORS
+Le panier est sauvegardé dans **localStorage** du navigateur.
+Il persiste même après fermeture de la page!
 
 ---
 
-## 👥 Équipe
+## 🌟 **Prochaines étapes**
 
-**Développé par: SAM DIGITAL**
+Pour une version complète avec backend:
+
+1. ✅ Ajouter un serveur Node.js (Heroku, Render)
+2. ✅ Ajouter MongoDB
+3. ✅ Authentification des utilisateurs
+4. ✅ Système de paiement
+5. ✅ Tableaux de bord vendeur
 
 ---
 
-## 📝 Licence
+## 📞 **Informations de contact**
 
-MIT License
+- 📧 Email: contact@sammarket.bf
+- 📱 Tél: +226 25 XX XX XX
+- 📍 Ouagadougou, Burkina Faso
+- 🌐 GitHub: https://github.com/tassembedosamuel67-crypto/SAM-MARKET
 
 ---
 
-**Dernière mise à jour**: Septembre 2026
+## 📝 **Licence**
 
-🚀 **Happy Coding!**
+MIT License - Libre d'utilisation
+
+---
+
+**Développé par SAM DIGITAL**
+
+✨ **Bienvenue sur SAM MARKET!** ✨
