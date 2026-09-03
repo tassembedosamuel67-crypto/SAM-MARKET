@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock - Multiple Time Zones</title>
+    <link rel="stylesheet" href="clock-style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🕐 Digital Clock - Multiple Time Zones</h1>
+        
+        <div class="clocks-grid">
+            <!-- Burkina Faso Time -->
+            <div class="clock-card">
+                <div class="timezone-name">Burkina Faso (GMT)</div>
+                <div class="timezone-label">West Africa Time</div>
+                <div class="digital-display" id="clock-bf">00:00:00</div>
+                <div class="timezone-offset" id="offset-bf">UTC+0</div>
+            </div>
+
+            <!-- Paris Time -->
+            <div class="clock-card">
+                <div class="timezone-name">Paris (CET/CEST)</div>
+                <div class="timezone-label">Central European Time</div>
+                <div class="digital-display" id="clock-paris">00:00:00</div>
+                <div class="timezone-offset" id="offset-paris">UTC+1/+2</div>
+            </div>
+
+            <!-- New York Time -->
+            <div class="clock-card">
+                <div class="timezone-name">New York (EST/EDT)</div>
+                <div class="timezone-label">Eastern Time</div>
+                <div class="digital-display" id="clock-ny">00:00:00</div>
+                <div class="timezone-offset" id="offset-ny">UTC-5/-4</div>
+            </div>
+
+            <!-- Tokyo Time -->
+            <div class="clock-card">
+                <div class="timezone-name">Tokyo (JST)</div>
+                <div class="timezone-label">Japan Standard Time</div>
+                <div class="digital-display" id="clock-tokyo">00:00:00</div>
+                <div class="timezone-offset" id="offset-tokyo">UTC+9</div>
+            </div>
+
+            <!-- Sydney Time -->
+            <div class="clock-card">
+                <div class="timezone-name">Sydney (AEDT/AEST)</div>
+                <div class="timezone-label">Australian Eastern Time</div>
+                <div class="digital-display" id="clock-sydney">00:00:00</div>
+                <div class="timezone-offset" id="offset-sydney">UTC+10/+11</div>
+            </div>
+
+            <!-- Dubai Time -->
+            <div class="clock-card">
+                <div class="timezone-name">Dubai (GST)</div>
+                <div class="timezone-label">Gulf Standard Time</div>
+                <div class="digital-display" id="clock-dubai">00:00:00</div>
+                <div class="timezone-offset" id="offset-dubai">UTC+4</div>
+            </div>
+
+            <!-- London Time -->
+            <div class="clock-card">
+                <div class="timezone-name">London (GMT/BST)</div>
+                <div class="timezone-label">Greenwich Mean Time</div>
+                <div class="digital-display" id="clock-london">00:00:00</div>
+                <div class="timezone-offset" id="offset-london">UTC+0/+1</div>
+            </div>
+
+            <!-- Singapore Time -->
+            <div class="clock-card">
+                <div class="timezone-name">Singapore (SGT)</div>
+                <div class="timezone-label">Singapore Standard Time</div>
+                <div class="digital-display" id="clock-singapore">00:00:00</div>
+                <div class="timezone-offset" id="offset-singapore">UTC+8</div>
+            </div>
+        </div>
+
+        <div class="current-date" id="current-date">
+            Loading date...
+        </div>
+
+        <div class="info-box">
+            <p>⏰ Clock updates every second</p>
+            <p>🌍 All times are in 24-hour format</p>
+        </div>
+    </div>
+
+    <script src="clock-script.js"></script>
+</body>
+</html>
